@@ -25,4 +25,9 @@ jobs:
     - name: test
       run: mvn package
       # if: steps.extract_branch.outputs.branch == 'Dev'
+    - name: Build docker image 
+      working-directory: .
+      run: |
+            docker build -t shivampateriyaknoldus/gitaction .
+
       
