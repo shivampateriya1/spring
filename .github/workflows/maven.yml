@@ -24,11 +24,11 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: test
       run: mvn package
-      # if: steps.extract_branch.outputs.branch == 'Dev'
-    # - name: Build docker image 
-    #   working-directory: .
-    #   run: |
-    #         docker build -t shivampateriyaknoldus/gitaction .
+      if: steps.extract_branch.outputs.branch == 'Dev'
+    - name: Build docker image 
+      working-directory: .
+      run: |
+            docker build -t sdocker.pkg.github.com/shivampateriya1/spring/springapp:latest .
     - name: dockertoken
       run: |
         echo ${{ secrets.DOCKERTOKEN }} | docker login ghcr.io -u shivampateriyaknoldus --password-stdin
