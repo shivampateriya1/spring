@@ -6,8 +6,6 @@ name: Java CI with Maven
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ Dev ]
 
 jobs:
   build:
@@ -25,6 +23,6 @@ jobs:
     - name: Build with Maven
       run: mvn -B package --file pom.xml
     - name: test
-      run: mvn test
-      if: steps.extract_branch.outputs.branch == 'Dev'
+      run: mvn package
+      # if: steps.extract_branch.outputs.branch == 'Dev'
       
