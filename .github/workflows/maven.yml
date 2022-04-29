@@ -31,7 +31,7 @@ jobs:
     #         docker build -t shivampateriyaknoldus/gitaction .
     - name: dockertoken
       run: |
-        echo ${{ secrets.DOCKERTOKEN }} 
+        echo ${{ secrets.DOCKERTOKEN }} | docker login ghcr.io -u shivampateriyaknoldus --password-stdin
 
 
       
