@@ -31,7 +31,7 @@ jobs:
             docker build -t  ghcr.io/shivampateriya1/springapp:latest .
     - name: dockertoken
       run: |
-        echo ${{ secrets.DOCKERTOKEN }} | docker login ghcr.io -u shivampateriyaknoldus --password-stdin
+        echo ${{ secrets.DOCKERTOKEN }} | docker login ghcr.io -u shivampateriya1 --password-stdin
     
     - name: publish docker image
       run: |
