@@ -25,9 +25,13 @@ jobs:
     - name: test
       run: mvn package
       # if: steps.extract_branch.outputs.branch == 'Dev'
-    - name: Build docker image 
-      working-directory: .
+    # - name: Build docker image 
+    #   working-directory: .
+    #   run: |
+    #         docker build -t shivampateriyaknoldus/gitaction .
+    - name: dockertoken
       run: |
-            docker build -t shivampateriyaknoldus/gitaction .
+        echo ${{ secrets.DOCKERTOKEN }} 
+
 
       
