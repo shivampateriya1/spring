@@ -49,7 +49,9 @@ jobs:
     #     docker push  ghcr.io/shivampateriya1/spring/springapp:latest
 
     - name: commmand check
-      run: echo ${{github.event.inputs.deploy}}
+      run: echo ${{github.event.inputs.deploy == "both"}}
+    - name: print
+      run: echo both
 
 
 
