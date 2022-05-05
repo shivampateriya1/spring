@@ -4,8 +4,9 @@
 name: Java CI with Maven
 
 on:
-  push:
-    branches: [ main ]
+  # push:
+  #   branches: [ main ]
+  workflow_dispatch:  
 
 jobs:
   build:
@@ -28,14 +29,14 @@ jobs:
     - name: Build docker image 
       working-directory: .
       run: |
-            docker build -t  ghcr.io/shivampateriya1/springapp:latest .
+            docker build -t  ghcr.io/shivampateriya1/spring/springapp:latest .
     - name: dockertoken
       run: |
         echo ${{ secrets.DOCKERTOKEN }} | docker login ghcr.io -u shivampateriya1 --password-stdin
     
     - name: publish docker image
       run: |
-        docker push  ghcr.io/shivampateriya1/springapp:latest
+        docker push  ghcr.io/shivampateriya1/spring/springapp:latest
 
 
 
