@@ -7,6 +7,16 @@ on:
   # push:
   #   branches: [ main ]
   workflow_dispatch:  
+    inputs:
+      deploy:
+        description: "Choose deployment type"
+        required: true
+        type: choice
+        options:
+          - ""
+          - "frontend"
+          - "backend"
+          - "both"
 
 jobs:
   build:
